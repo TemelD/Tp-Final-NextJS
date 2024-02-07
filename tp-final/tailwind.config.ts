@@ -20,6 +20,10 @@ const config: Config = {
           3: '#7F9EA1',
           4: '#70DADA',
         },
+        main: {
+          1: '#EDF5F5',
+          2: '#8A9B95'
+        }
       },
     },
   },
