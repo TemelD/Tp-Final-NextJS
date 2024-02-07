@@ -19,7 +19,7 @@ const links = [
     href: '/dashboard/analytics',
     icon: DocumentDuplicateIcon,
   },
-  { name: 'Extensions', href: '/dashboard/extension', icon: UserGroupIcon },
+  { name: 'Patients', href: '/dashboard/patients', icon: UserGroupIcon },
 ];
 
 export default function NavLinks() {
