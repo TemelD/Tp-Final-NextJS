@@ -5,6 +5,7 @@ import CustomersTable from '@/app/ui/patients/table';
 import { Query } from '@vercel/postgres';
 import Search from '@/app/ui/search';
 import { Suspense } from 'react';
+import Form from '@/app/ui/patients/create-form';
 
 // Tableau de patients (vous pouvez le remplir avec vos propres données)
 const patients = [
@@ -41,6 +42,6 @@ export default async function Page({
     const searchs = await fetchFilteredCustomers(query);
 
     return (
-        <CustomersTable customers={searchs} />  
+      <CustomersTable customers={searchs} />
     );
 };

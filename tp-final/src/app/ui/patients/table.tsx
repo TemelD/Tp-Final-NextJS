@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
+import { Button } from '@/app/ui/button';
 import {
     CustomerField,
 } from '@/app/lib/definitions';
+import Link from 'next/link'
 
 export default async function CustomersTable({
   customers,
@@ -16,6 +18,7 @@ export default async function CustomersTable({
         Customers
       </h1>
       <Search placeholder="Search customers..." />
+      <Link href="/dashboard/patients/create">Dashboard</Link>
       <div className="mt-6 flow-root">
         <div className="overflow-x-auto">
           <div className="inline-block min-w-full align-middle">
