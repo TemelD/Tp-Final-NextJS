@@ -30,16 +30,17 @@ export async function createCustomer(formData: FormData) {
   revalidatePath('/dashboard/patients');
 }
 
-export async function updateInvoice(id: string, formData: FormData) {
+export async function updateCustomer(id: string, formData: FormData) {
     const { name, email } = UpdateInvoice.parse({
       name: formData.get('name'),
       email: formData.get('email'),
+
     });
    
    
     await sql`
       UPDATE customers
-      SET name = ${name}, email = ${email}
+      SET name = ${name}, email = ${email}, image_url = ${''}
       WHERE id = ${id}
     `;
    

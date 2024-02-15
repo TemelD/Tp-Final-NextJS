@@ -5,7 +5,9 @@ import { Button } from '@/app/ui/button';
 import {
     CustomerField,
 } from '@/app/lib/definitions';
-import Link from 'next/link'
+import Link from 'next/link';
+import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { UpdateCustomer, DeleteInvoice } from '@/app/ui/patients/buttons';
 
 export default async function CustomersTable({
   customers,
@@ -49,6 +51,7 @@ export default async function CustomersTable({
                       </div>
                     </div>
                   </div>
+                  
                 ))}
               </div>
               <table className="hidden min-w-full rounded-md text-gray-900 md:table">
@@ -81,6 +84,7 @@ export default async function CustomersTable({
                       <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
                         {customer.email}
                       </td>
+                      <td><UpdateCustomer id={customer.id} /></td>
                     </tr>
                   ))}
                 </tbody>

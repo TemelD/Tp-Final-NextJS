@@ -2,7 +2,9 @@ import {sql} from '@vercel/postgres';
 import {
     CustomersTableType,
     CustomerField,
+    CustomerForm,
 } from '../lib/definitions';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function fetchCustomers() {
 
@@ -22,6 +24,30 @@ export async function fetchCustomers() {
     } catch (err) {
       console.error('Database Error:', err);
       throw new Error('Failed to fetch all customers.');
+    }
+  }
+
+  export async function fetchCustomerById(id: string) {
+    noStore();
+    try {
+      const data = await sql<CustomerForm>`
+        SELECT
+        customers.id,
+        customers.name,
+        customers.email,
+        customers.image_url
+      FROM customers
+        WHERE customers.id = ${id};
+      `;
+  
+      const customer = data.rows.map((customer) => ({
+        ...customer,
+      }));
+  
+      return customer[0];
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch customer.');
     }
   }
 

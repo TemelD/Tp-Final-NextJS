@@ -25,4 +25,10 @@ export type Customer = {
     email: string;
     image_url: string;
   };
+  export type CustomerForm = {
+    id: string;
+    name: string;
+    email: string;
+    image_url: string;
+  };
   
