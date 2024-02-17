@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Image from 'next/image'
-import { fetchCustomers, fetchFilteredCustomers } from '@/app/lib/data';
+import { fetchCustomers, fetchFilteredCustomers, fetchCustomerById } from '@/app/lib/data';
 import CustomersTable from '@/app/ui/patients/table';
 import { Query } from '@vercel/postgres';
 import Search from '@/app/ui/search';
@@ -24,6 +24,6 @@ export default async function Page({
     const searchs = await fetchFilteredCustomers(query);
 
     return (
-      <CustomersTable customers={searchs} />
+      <CustomersTable customers={searchs}/>
     );
 };

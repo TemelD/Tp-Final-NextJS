@@ -1,6 +1,6 @@
 import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { deleteInvoice } from '@/app/lib/actions';
+import { deleteCustomer } from '@/app/lib/actions';
 
 export function CreateInvoice() {
   return (
@@ -18,19 +18,18 @@ export function UpdateCustomer({ id }: { id: string }) {
   return (
     <Link
       href="/dashboard/patients/${id}/edit"
-      className="rounded-md border p-2 text-black"
+      className="flex h-10 items-center rounded-lg bg-green-600 px-4 text-sm font-medium text-white transition-colors hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
     >
       <PencilIcon className="w-5" />
     </Link>
   );
 }
 
-export function DeleteInvoice({ id }: { id: string }) {
-  const deleteInvoiceWithId = deleteInvoice.bind(null, id);
+export function DeleteCustomer({ id }: { id: string }) {
+  const deleteCustomerWithId = deleteCustomer.bind(null, id);
   return (
-    <form action={deleteInvoiceWithId}>
-      <button className="rounded-md border p-2 hover:bg-gray-100">
-        <span className="sr-only">Delete</span>
+    <form action={deleteCustomerWithId}>
+      <button className="flex h-10 items-center rounded-lg bg-red-600 px-4 text-sm font-medium text-white transition-colors hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
         <TrashIcon className="w-4" />
       </button>
     </form>

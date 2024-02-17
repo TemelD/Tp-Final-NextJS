@@ -77,3 +77,35 @@ export async function fetchCustomers() {
       throw new Error('Failed to fetch customer table.');
     }
   }
+
+  const ITEMS_PER_PAGE = 6;
+export async function fetchFilteredCustomersCustomers(
+  query: string,
+  currentPage: number,
+) {
+  noStore();
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+
+  try {
+    const customers = await sql<CustomerForm>`
+      SELECT
+        customers.id,
+        customers.name,
+        customers.email,
+        customers.image_url
+      FROM customers
+      WHERE
+      customers.id ILIKE ${`%${query}%`} OR
+        customers.name ILIKE ${`%${query}%`} OR
+        customers.email ILIKE ${`%${query}%`} OR
+      ORDER BY customers.name DESC
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    `;
+
+    return customers.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch invoices.');
+  }
+}
+

@@ -8,7 +8,7 @@ export default function SideNav() {
         <div className="flex items-center bg-header-1 px-3 py-4">
           <Link
             className="mb-2 rounded-mdp-4"
-            href="/"
+            href="/dashboard"
           >
             <div className="w-32 text-white md:w-40">
               <Logo />
@@ -20,11 +20,6 @@ export default function SideNav() {
             <NavLinks />
           </div>
 
-          <img
-            src="url_de_votre_image"
-            alt="Nom de votre image"
-            className="h-12 w-12 rounded-full"
-          />
         </div>
       );
 }

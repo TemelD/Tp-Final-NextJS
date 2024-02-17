@@ -13,7 +13,7 @@ const FormSchema = z.object({
 });
  
 const CreateCustomer = FormSchema.omit({ id: true, date: true });
-const UpdateInvoice = FormSchema.omit({ id: true, date: true });
+const UpdateCustomer = FormSchema.omit({ id: true, date: true });
  
 export async function createCustomer(formData: FormData) {
   const { name, email } = CreateCustomer.parse({
@@ -31,7 +31,7 @@ export async function createCustomer(formData: FormData) {
 }
 
 export async function updateCustomer(id: string, formData: FormData) {
-    const { name, email } = UpdateInvoice.parse({
+    const { name, email } = UpdateCustomer.parse({
       name: formData.get('name'),
       email: formData.get('email'),
 
@@ -48,7 +48,7 @@ export async function updateCustomer(id: string, formData: FormData) {
     redirect('/dashboard/patients');
   }
 
-  export async function deleteInvoice(id: string) {
+  export async function deleteCustomer(id: string) {
     await sql`DELETE FROM customers WHERE id = ${id}`;
     revalidatePath('/dashboard/patients');
   }

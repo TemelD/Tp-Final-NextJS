@@ -20,7 +20,7 @@ export default function Page() {
                             <span>Upcoming Patient</span>
                             <ArrowDownCircleIcon className="h-10 w-10" />
                             </div>
-                        <div className='bg-white rounded-3xl flex items-center'>
+                        <div className='bg-white rounded-3xl flex items-center p-2'>
                             <div className=''>
                             <Image
                                 src="/Temel.jpg"
@@ -30,7 +30,7 @@ export default function Page() {
                                 alt="Screenshots of the dashboard project showing desktop version"
                                 />
                             </div>
-                            <div className='flex flex-col gap-5'>
+                            <div className='flex flex-col gap-5 m-2'>
                                 <div>
                                     <h3 className='font-bold'>Dean Ferrera</h3>
                                     <p className='text-main-2'>Patient since Jan, 2021</p>

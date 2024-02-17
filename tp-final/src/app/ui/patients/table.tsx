@@ -3,16 +3,17 @@ import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
 import { Button } from '@/app/ui/button';
 import {
-    CustomerField,
+    CustomerField,CustomerForm
 } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { UpdateCustomer, DeleteInvoice } from '@/app/ui/patients/buttons';
+import { UpdateCustomer, DeleteCustomer } from '@/app/ui/patients/buttons';
 
 export default async function CustomersTable({
   customers,
 }: {
   customers: CustomerField[];
+  
 }) {
   return (
     <div className="w-full">
@@ -20,7 +21,13 @@ export default async function CustomersTable({
         Customers
       </h1>
       <Search placeholder="Search customers..." />
-      <Link href="/dashboard/patients/create">Dashboard</Link>
+      <Link
+      href="/dashboard/patients/create"
+      className="flex h-10 items-center rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+    >
+      <span className="hidden md:block">Create Customer</span>{' '}
+      <PlusIcon className="h-5 md:ml-4" />
+    </Link>
       <div className="mt-6 flow-root">
         <div className="overflow-x-auto">
           <div className="inline-block min-w-full align-middle">
@@ -84,7 +91,12 @@ export default async function CustomersTable({
                       <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
                         {customer.email}
                       </td>
-                      <td><UpdateCustomer id={customer.id} /></td>
+                      <td>
+                        <div>
+                          <UpdateCustomer id={customer.id} />
+                          <DeleteCustomer id={customer.id} />
+                        </div>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

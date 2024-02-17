@@ -12,19 +12,18 @@ import { createCustomer } from   '@/app/lib/actions';
 export default function Form({ customers }: { customers: CustomerField[] }) {
   return (
     <form action={createCustomer}>
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
+      <div className="rounded-md bg-gray-600 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
-          <label htmlFor="customer" className="mb-2 block text-sm font-medium">
+          <label htmlFor="customer" className="mb-2 block text-sm font-medium text-white">
             Choose name
           </label>
           <div className="relative">
-          <input name='name' id='name' className='text-black border-black bg-gray-600' type="text" />
-          <label htmlFor="customer" className="mb-2 block text-sm font-medium">
+          <input name='name' id='name' className='text-black border-black bg-white' type="text" />
+          <label htmlFor="customer" className="mb-2 block text-sm font-medium text-white">
             Choose email
           </label>
-            <input name='email' id='email' className='text-black border-black bg-gray-600' type="text" />
-            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+            <input name='email' id='email' className='text-black border-black bg-white' type="text" />
           </div>
         </div>
        
@@ -36,7 +35,9 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
         >
           Cancel
         </Link>
-        <Button type="submit">Create Customer</Button>
+        <Link href="/dashboard/patients">
+          <Button type="submit">Create Customer</Button>
+        </Link>
       </div>
     </form>
   );
